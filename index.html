@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill MiQ Google Ads - cyfrowy pracownik dla specjalisty Google Ads | Michał Kurek</title>
+<meta name="description" content="Skill google-ads dla Claude Code. Ponad 60 komend, 6 workflow, audyt 30-punktowy. Setup w 30-45 minut. 399 zł.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --orange: #ff6700;
+  --orange-700: #e55a00;
+  --orange-soft: rgba(255, 103, 0, 0.12);
+  --orange-line: rgba(255, 103, 0, 0.35);
+
+  --ink: #1a1a1a;
+  --ink-deep: #0d0d0d;
+  --ink-soft: #2a2a2a;
+  --ink-muted: #3a3a3a;
+
+  --paper: #ffffff;
+  --paper-warm: #fafafa;
+  --paper-soft: #f3f3f3;
+  --line: #e8e8e8;
+
+  --muted: #6b6b6b;
+  --muted-deep: #4a4a4a;
+
+  --fs-12: clamp(0.72rem, 0.71rem + 0.05vw, 0.78rem);
+  --fs-14: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
+  --fs-16: clamp(0.95rem, 0.92rem + 0.18vw, 1.05rem);
+  --fs-18: clamp(1.05rem, 1rem + 0.25vw, 1.18rem);
+  --fs-22: clamp(1.18rem, 1.08rem + 0.5vw, 1.45rem);
+  --fs-28: clamp(1.45rem, 1.25rem + 1vw, 2rem);
+  --fs-40: clamp(1.9rem, 1.5rem + 2vw, 2.85rem);
+  --fs-56: clamp(2.4rem, 1.85rem + 2.8vw, 3.8rem);
+  --fs-display: clamp(2.6rem, 1.7rem + 4.2vw, 5.2rem);
+
+  --maxw: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  --ff: "Poppins", system-ui, -apple-system, sans-serif;
+  --ff-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: var(--ff);
+  font-size: var(--fs-16);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  font-weight: 400;
+  text-wrap: pretty;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+::selection { background: var(--orange); color: #fff; }
+
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; }
+code, kbd, .mono { font-family: var(--ff-mono); }
+
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* === NAV === */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.85rem 0;
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.6rem; color: #fff; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; }
+.nav-logo .mark {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--orange);
+  display: grid; place-items: center;
+  color: #fff; font-weight: 800; font-size: 0.95rem;
+  letter-spacing: -0.02em;
+  position: relative;
+  overflow: hidden;
+}
+.nav-logo .mark::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at center, transparent 18%, rgba(255,255,255,0.18) 19%, rgba(255,255,255,0.18) 22%, transparent 23%, transparent 32%, rgba(255,255,255,0.18) 33%, rgba(255,255,255,0.18) 36%, transparent 37%);
+}
+.nav-logo .mark span { position: relative; z-index: 1; }
+.nav-links { display: none; gap: 1.75rem; font-size: 0.92rem; color: rgba(255,255,255,0.7); }
+.nav-links a { transition: color 0.2s var(--ease); }
+.nav-links a:hover { color: var(--orange); }
+@media (min-width: 880px) { .nav-links { display: flex; } }
+.nav-cta {
+  background: var(--orange); color: #fff; padding: 0.65rem 1.25rem;
+  border-radius: 999px; font-weight: 600; font-size: 0.92rem;
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+}
+.nav-cta:hover { background: var(--orange-700); transform: translateY(-1px); }
+
+/* === HERO === */
+.hero {
+  background: var(--ink);
+  color: #fff;
+  padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(3.5rem, 7vw, 6rem);
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-pattern {
+  position: absolute; inset: 0;
+  background: url("assets/hero_bg.png") right center / cover no-repeat;
+  opacity: 0.13;
+  mask-image: linear-gradient(to left, black 0%, black 30%, transparent 75%);
+  -webkit-mask-image: linear-gradient(to left, black 0%, black 30%, transparent 75%);
+  pointer-events: none;
+}
+.hero-glow {
+  position: absolute; top: -10%; right: -10%;
+  width: 60vw; height: 60vw; max-width: 800px; max-height: 800px;
+  background: radial-gradient(circle, rgba(255,103,0,0.18), transparent 60%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  background: rgba(255, 103, 0, 0.1);
+  border: 1px solid var(--orange-line);
+  border-radius: 999px;
+  font-size: 0.85rem; font-weight: 500;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+.hero-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255,103,0,0.25);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(255,103,0,0); } }
+.hero-badge code { font-size: 0.82em; padding: 0 0.3rem; background: rgba(255,103,0,0.18); border-radius: 4px; color: var(--orange); }
+.hero-badge .cmd-static { color: var(--orange); font-weight: 500; font-family: var(--ff-mono); font-size: 0.88em; }
+.hero-badge .cmd-rot {
+  display: inline-block; position: relative;
+  height: 1.4em; overflow: hidden;
+  vertical-align: bottom;
+  min-width: 16ch;
+}
+.hero-badge .cmd-rot span {
+  display: block; line-height: 1.4em;
+  white-space: nowrap;
+  animation: rotcmd 12s cubic-bezier(0.7, 0, 0.3, 1) infinite;
+}
+@keyframes rotcmd {
+  0%, 22%   { transform: translateY(0); }
+  25%, 47%  { transform: translateY(-1.4em); }
+  50%, 72%  { transform: translateY(-2.8em); }
+  75%, 97%  { transform: translateY(-4.2em); }
+  100%      { transform: translateY(-5.6em); }
+}
+.hero h1 {
+  font-size: var(--fs-display);
+  line-height: 1.02;
+  font-weight: 800;
+  max-width: 18ch;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.035em;
+}
+.hero h1 em {
+  font-style: normal; color: var(--orange);
+  position: relative;
+  white-space: nowrap;
+}
+.hero-sub {
+  font-size: var(--fs-22); color: rgba(255,255,255,0.72);
+  max-width: 56ch; margin-bottom: 2.5rem; line-height: 1.45;
+  font-weight: 400;
+}
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center; }
+.btn-primary {
+  background: var(--orange); color: #fff;
+  padding: 1.05rem 1.85rem; border-radius: 999px;
+  font-weight: 600; font-size: var(--fs-16);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease);
+  box-shadow: 0 8px 24px rgba(255, 103, 0, 0.3);
+  display: inline-flex; align-items: center; gap: 0.6rem;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(255, 103, 0, 0.4); background: var(--orange-700); }
+.btn-primary .arrow { transition: transform 0.2s var(--ease); }
+.btn-primary:hover .arrow { transform: translateX(3px); }
+.btn-secondary {
+  color: #fff; padding: 1.05rem 1.5rem; border-radius: 999px;
+  font-weight: 500; font-size: var(--fs-16);
+  border: 1px solid rgba(255,255,255,0.22);
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+  display: inline-flex; align-items: center; gap: 0.55rem;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.4); }
+.btn-secondary .play {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--orange);
+  display: grid; place-items: center;
+  font-size: 0.6rem;
+  color: #fff;
+}
+.hero-meta {
+  margin-top: 2.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem 2rem;
+  color: rgba(255,255,255,0.55); font-size: var(--fs-14);
+  max-width: 580px;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+@media (min-width: 720px) { .hero-meta { grid-template-columns: repeat(4, 1fr); } }
+.hero-meta-item { display: flex; align-items: center; gap: 0.55rem; }
+.hero-meta-item::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--orange); flex-shrink: 0;
+}
+
+/* === SECTIONS === */
+section { padding: clamp(4rem, 8vw, 6.5rem) 0; position: relative; }
+.section-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: var(--fs-14); font-weight: 600;
+  color: var(--orange); margin-bottom: 1.25rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 0.78rem;
+}
+.section-eyebrow::before {
+  content: ""; width: 24px; height: 2px; background: var(--orange);
+}
+.section-h2 {
+  font-size: var(--fs-40); margin-bottom: 1.25rem; max-width: 24ch;
+  letter-spacing: -0.03em;
+}
+.section-lead {
+  font-size: var(--fs-22); color: var(--muted-deep); max-width: 60ch; line-height: 1.45;
+}
+
+/* spacer divider */
+.spacer-divider {
+  height: 28px;
+  background: url("assets/spacer_orange-1.png") center / contain no-repeat;
+  margin: 0 auto;
+  max-width: 460px;
+  opacity: 0.95;
+}
+.spacer-divider.white {
+  background-image: url("assets/spacer_white-1.png");
+  filter: brightness(2.5);
+}
+
+/* === DEMO === */
+.demo {
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.demo::before {
+  content: ""; position: absolute; left: -120px; top: 50%; transform: translateY(-50%);
+  width: 320px; height: 320px;
+  background: url("assets/deco-2.png") center / contain no-repeat;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.demo-wrap { text-align: center; position: relative; z-index: 1; }
+.demo h2 {
+  font-size: var(--fs-28); margin-bottom: 2.5rem; max-width: 52ch; margin-inline: auto;
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+.demo h2 strong { color: var(--ink); }
+.demo h2 .sep { color: var(--orange); font-weight: 800; margin-right: 0.15em; }
+.demo h2 .hi { color: var(--orange); }
+
+/* claude code desktop mock */
+.cc {
+  background: #ffffff;
+  border-radius: 14px;
+  max-width: 920px; margin: 0 auto;
+  text-align: left;
+  font-family: var(--ff);
+  font-size: clamp(0.85rem, 0.78rem + 0.32vw, 0.98rem);
+  line-height: 1.55;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
+  overflow: hidden;
+  color: #1f1f1f;
+}
+.cc-titlebar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: #fafafa;
+  border-bottom: 1px solid #ececec;
+}
+.cc-titlebar .breadcrumb {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.92rem; color: #1f1f1f; font-weight: 500;
+}
+.cc-titlebar .breadcrumb svg { color: #6b6b6b; flex-shrink: 0; }
+.cc-titlebar .breadcrumb .sep { color: #b8b8b8; font-weight: 400; }
+.cc-titlebar .breadcrumb .chev { color: #9a9a9a; margin-left: 0.15rem; }
+.cc-titlebar .icons { display: flex; gap: 0.5rem; color: #9a9a9a; }
+.cc-titlebar .icons svg { width: 16px; height: 16px; }
+.cc-body {
+  padding: 1.3rem 1.5rem 0.9rem;
+  min-height: 410px;
+  background: #fff;
+  overflow: hidden;
+}
+@media (min-width: 720px) { .cc-body { padding: 1.55rem 2.4rem 1rem; min-height: 470px; } }
+.cc-thread {
+  display: grid;
+  gap: 0.72rem;
+  color: #111;
+}
+.cc-demo-line {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.36s var(--ease), transform 0.36s var(--ease);
+}
+.cc-demo-line.show {
+  opacity: 1;
+  transform: none;
+  animation: ccfade 0.5s var(--ease) both;
+}
+@keyframes ccfade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.cc-userline {
+  display: flex; align-items: center; gap: 0.5rem;
+  color: #222;
+  font-size: 0.96rem;
+}
+.cc-userline .arrow { color: var(--orange); font-weight: 600; }
+.cc-userline .text { font-weight: 500; }
+.cc-action {
+  color: #737373;
+  font-size: 0.95rem;
+}
+.cc-action .chev,
+.cc-file-row .chev { color: #737373; padding-left: 0.15rem; }
+.cc-message {
+  margin: 0;
+  color: #111;
+  font-size: clamp(1rem, 0.92rem + 0.32vw, 1.18rem);
+  line-height: 1.48;
+}
+.cc-file-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.28rem;
+  color: #737373;
+  font-size: 0.95rem;
+  flex-wrap: wrap;
+}
+.cc-file-row code,
+.cc-inline-code {
+  font-family: var(--ff-mono);
+  color: #111;
+  font-size: 0.95em;
+}
+.cc-file-row .add,
+.cc-branch .add { color: #179b43; font-weight: 600; }
+.cc-file-row .rem,
+.cc-branch .rem { color: #d5315b; font-weight: 600; }
+.cc-findings {
+  list-style: none;
+  counter-reset: finding;
+  display: grid;
+  gap: 0.34rem;
+  margin: 0.05rem 0 0;
+  padding: 0;
+  font-size: clamp(0.94rem, 0.9rem + 0.18vw, 1.05rem);
+}
+.cc-findings li {
+  counter-increment: finding;
+  display: grid;
+  grid-template-columns: 1.5rem 0.8rem 1fr;
+  gap: 0.15rem 0.2rem;
+  align-items: start;
+  color: #111;
+}
+.cc-findings li::before {
+  content: counter(finding) ".";
+  color: #111;
+  text-align: right;
+  padding-right: 0.15rem;
+}
+.cc-findings .dot {
+  width: 0.68rem; height: 0.68rem;
+  border-radius: 50%;
+  background: #e4261d;
+  margin-top: 0.42rem;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.5);
+}
+.cc-findings b { font-weight: 700; }
+.cc-link {
+  color: #1a73e8;
+  font-family: var(--ff-mono);
+  font-weight: 500;
+}
+
+.cc-foot {
+  border-top: 1px solid #ececec;
+  background: #fafafa;
+  padding: 0.65rem 0.85rem 0.85rem;
+  display: grid; gap: 0.65rem;
+}
+.cc-branch {
+  display: flex; align-items: center; gap: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+.cc-branch .git {
+  display: flex; align-items: center; gap: 0.45rem;
+  color: #1f1f1f; font-weight: 500;
+}
+.cc-branch .git svg { color: #6b6b6b; }
+.cc-branch .diff {
+  display: flex; gap: 0.45rem; margin-left: auto;
+  font-family: var(--ff-mono); font-size: 0.82rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  background: #f3f3f3;
+}
+.cc-branch .add { color: #1d8c4d; font-weight: 600; }
+.cc-branch .rem { color: #c8412b; font-weight: 600; }
+.cc-branch .pr {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: #fff; color: #1f1f1f;
+  border: 1px solid #d8d8d8;
+  padding: 0.3rem 0.65rem;
+  border-radius: 7px;
+  font-size: 0.82rem; font-weight: 500;
+}
+.cc-branch .pr .chev { color: #9a9a9a; font-size: 0.7em; }
+.cc-input {
+  display: flex; align-items: flex-start; gap: 0.7rem;
+  padding: 0.75rem 0.85rem;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  position: relative;
+}
+.cc-input .star {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--orange);
+}
+.cc-input .field {
+  flex: 1;
+  color: #1f1f1f;
+  font-size: 0.92rem;
+  padding: 0.1rem 0;
+  min-height: 1.5em;
+  font-family: var(--ff);
+}
+.cc-input .field:empty::before {
+  content: "Type / for commands";
+  color: #b0b0b0;
+}
+.cc-input .field .cur {
+  display: inline-block; width: 0.55em; height: 1.1em;
+  background: var(--orange); vertical-align: text-bottom;
+  margin-left: 0.05em;
+  animation: ccblink 1s steps(2) infinite;
+}
+@keyframes ccblink { 50% { opacity: 0; } }
+.cc-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0 0.25rem;
+  font-size: 0.82rem;
+  color: #6b6b6b;
+}
+.cc-bottom .left { display: flex; align-items: center; gap: 0.7rem; }
+.cc-bottom .auto { color: #c89a3a; font-weight: 500; }
+.cc-bottom .ico {
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  border-radius: 6px;
+  color: #6b6b6b;
+}
+.cc-bottom .ico:hover { background: #f0f0f0; }
+.cc-bottom .right { display: flex; align-items: center; gap: 0.5rem; }
+.cc-bottom .model { color: #1f1f1f; font-weight: 500; }
+.cc-bottom .max {
+  background: #1f1f1f; color: #fff;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-left: 0.15rem;
+}
+
+.demo-caption {
+  font-size: var(--fs-18); color: var(--muted-deep); max-width: 64ch; margin: 2.5rem auto 0; line-height: 1.5;
+}
+.demo-caption strong { color: var(--ink); }
+
+/* === STORY === */
+.story { background: var(--paper); position: relative; overflow: hidden; }
+.story::after {
+  content: ""; position: absolute; right: -180px; top: 30%;
+  width: 460px; height: 460px;
+  background: url("assets/deco-3.png") center / contain no-repeat;
+  opacity: 0.55; pointer-events: none;
+}
+.story-wrap { max-width: 760px; position: relative; z-index: 1; }
+.story h2 { font-size: var(--fs-40); margin-bottom: 2rem; max-width: 22ch; }
+.story h2 em { font-style: normal; color: var(--orange); }
+.story p { font-size: var(--fs-18); margin-bottom: 1.4rem; line-height: 1.65; color: var(--muted-deep); }
+.story p strong { color: var(--ink); font-weight: 600; }
+.story p:last-child {
+  font-weight: 600; color: var(--ink); font-size: var(--fs-22);
+  border-left: 3px solid var(--orange); padding-left: 1.25rem;
+  margin-top: 2rem;
+}
+
+/* === CO ZMIENIA === */
+.changes {
+  background: var(--ink);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.changes::before {
+  content: ""; position: absolute; right: -120px; bottom: -120px;
+  width: 420px; height: 420px;
+  background: url("assets/deco-4.png") center / contain no-repeat;
+  opacity: 0.06; pointer-events: none;
+}
+.changes h2 { color: #fff; }
+.changes .section-lead { color: rgba(255,255,255,0.65); }
+.changes-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 1.25rem; margin-top: 3.5rem;
+}
+@media (min-width: 720px) { .changes-grid { grid-template-columns: repeat(2, 1fr); } }
+.change-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 18px; padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+  display: flex; flex-direction: column; gap: 1rem;
+  position: relative; overflow: hidden;
+}
+.change-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange-line);
+  background: rgba(255,103,0,0.04);
+}
+.change-card::after {
+  content: ""; position: absolute; right: -40px; top: -40px;
+  width: 140px; height: 140px;
+  background: url("assets/deco_short_double-1.png") center / contain no-repeat;
+  opacity: 0.05;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
+}
+.change-card:hover::after { opacity: 0.12; }
+.change-head { display: flex; align-items: center; gap: 1rem; }
+.change-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--orange); color: #fff;
+  font-weight: 700; font-size: 1.05rem;
+  font-family: var(--ff-mono);
+  flex-shrink: 0;
+}
+.change-card h3 {
+  font-size: var(--fs-22); line-height: 1.25;
+  color: #fff; letter-spacing: -0.02em;
+  flex: 1;
+}
+.change-card p {
+  color: rgba(255,255,255,0.72); line-height: 1.6;
+  font-size: var(--fs-16);
+}
+.change-card p strong { color: #fff; font-weight: 600; }
+.change-card code {
+  background: rgba(255,103,0,0.15); color: var(--orange);
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px; font-size: 0.88em;
+  font-family: var(--ff-mono);
+}
+
+/* === COMPARE === */
+.compare { background: var(--paper); }
+.compare-table {
+  margin-top: 3rem; width: 100%;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--line);
+}
+.compare-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+.compare-row:last-child { border-bottom: none; }
+.compare-row.head {
+  background: var(--paper-soft);
+}
+.compare-cell {
+  padding: 1.1rem 1.3rem;
+  font-size: var(--fs-16);
+  line-height: 1.45;
+}
+@media (min-width: 720px) { .compare-cell { padding: 1.4rem 1.75rem; } }
+.compare-cell.before {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-color: rgba(0,0,0,0.15);
+  text-decoration-thickness: 1px;
+  border-right: 1px solid var(--line);
+}
+.compare-cell.after {
+  color: var(--ink); font-weight: 500;
+  background: linear-gradient(90deg, rgba(255,103,0,0.04), transparent 40%);
+}
+.compare-cell.after strong { color: var(--orange); font-weight: 600; }
+.compare-row.head .compare-cell {
+  font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none;
+}
+.compare-row.head .before { color: var(--muted); }
+.compare-row.head .after { color: var(--orange); background: var(--paper-soft); }
+.compare-note {
+  margin-top: 2.5rem; font-size: var(--fs-18); color: var(--muted-deep);
+  max-width: 64ch; line-height: 1.5;
+}
+.compare-note strong { color: var(--ink); }
+
+/* === SAFETY === */
+.safety {
+  background: var(--ink);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.safety::before {
+  content: ""; position: absolute; left: -180px; top: -180px;
+  width: 480px; height: 480px;
+  background: url("assets/deco-1.png") center / contain no-repeat;
+  opacity: 0.06; pointer-events: none;
+  transform: rotate(15deg);
+}
+.safety-wrap { max-width: 780px; position: relative; z-index: 1; }
+.safety h2 {
+  font-size: var(--fs-40); margin-bottom: 2rem;
+  color: #fff; max-width: 22ch;
+}
+.safety h2 em { font-style: normal; color: var(--orange); }
+.safety-answer {
+  display: inline-block;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--orange);
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+  line-height: 1;
+}
+.safety-answer .dot { color: #fff; }
+.safety p {
+  font-size: var(--fs-18); margin-bottom: 1.4rem;
+  line-height: 1.65; color: rgba(255,255,255,0.78);
+}
+.safety p strong { color: #fff; }
+.safety code {
+  background: rgba(255,255,255,0.08); color: var(--orange);
+  padding: 0.15rem 0.45rem; border-radius: 4px;
+  font-family: var(--ff-mono); font-size: 0.88em;
+}
+.safety-final {
+  font-size: var(--fs-22); font-weight: 600; color: #fff;
+  margin-top: 2.5rem; padding: 1.5rem 0 0 1.5rem;
+  border-left: 3px solid var(--orange);
+}
+
+/* === PACKAGE === */
+.package { background: var(--paper-warm); position: relative; overflow: hidden; }
+.package::before {
+  content: ""; position: absolute; right: -100px; top: 60px;
+  width: 280px; height: 280px;
+  background: url("assets/deco-2.png") center / contain no-repeat;
+  opacity: 0.45; pointer-events: none;
+}
+.package h2 { font-size: var(--fs-40); margin-bottom: 0.75rem; max-width: 22ch; }
+.package h2 .price { color: var(--orange); }
+.package .section-lead { margin-bottom: 3rem; }
+.package-list { list-style: none; display: grid; gap: 0.85rem; max-width: 880px; position: relative; z-index: 1; }
+.package-list li {
+  display: flex; align-items: flex-start; gap: 1.1rem;
+  background: var(--paper); padding: 1.35rem 1.5rem; border-radius: 14px;
+  border: 1px solid var(--line);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.package-list > li:hover { border-color: var(--orange-line); transform: translateX(3px); }
+.package-list li .check {
+  flex-shrink: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--orange-soft);
+  display: grid; place-items: center;
+  margin-top: 0.1rem;
+}
+.package-list li .check::before {
+  content: ""; width: 12px; height: 7px;
+  border-left: 2px solid var(--orange);
+  border-bottom: 2px solid var(--orange);
+  transform: rotate(-45deg) translate(1px,-1px);
+}
+.package-list li .body { flex: 1; }
+.package-list li strong { display: block; margin-bottom: 0.2rem; font-size: var(--fs-18); color: var(--ink); font-weight: 600; }
+.package-list li span.desc { color: var(--muted-deep); font-size: var(--fs-16); line-height: 1.5; }
+.package-films {
+  margin-top: 0.85rem; padding-left: 0;
+  display: grid; gap: 0.4rem;
+}
+.package-films li {
+  background: transparent; border: none; padding: 0.1rem 0;
+  font-size: var(--fs-14); color: var(--muted);
+  display: block;
+}
+.package-films li::before { content: none; }
+.package-films li .ep {
+  display: inline-block;
+  background: var(--ink); color: #fff;
+  font-family: var(--ff-mono); font-size: 0.72rem;
+  padding: 0.1rem 0.4rem; border-radius: 4px;
+  margin-right: 0.6rem; font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* === ABOUT === */
+.about { background: var(--paper); position: relative; overflow: hidden; }
+.about-grid {
+  display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center;
+}
+@media (min-width: 900px) {
+  .about-grid { grid-template-columns: 360px 1fr; gap: 4.5rem; }
+}
+.about-image {
+  position: relative; aspect-ratio: 1;
+  max-width: 360px; margin: 0 auto;
+  border-radius: 24px; overflow: hidden;
+  background: var(--paper-soft);
+  isolation: isolate;
+}
+.about-image::before {
+  content: ""; position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(170deg, transparent 60%, rgba(255,103,0,0.18));
+  pointer-events: none;
+}
+.about-image::after {
+  content: ""; position: absolute; right: -30px; bottom: -30px;
+  width: 140px; height: 140px;
+  background: var(--orange);
+  border-radius: 50%;
+  z-index: 0;
+}
+.about-image img {
+  width: 100%; height: 100%; object-fit: cover;
+  position: relative; z-index: 1;
+}
+.about-text h2 { font-size: var(--fs-40); margin-bottom: 1.5rem; max-width: 22ch; }
+.about-text > p { font-size: var(--fs-18); color: var(--muted-deep); margin-bottom: 1.25rem; line-height: 1.65; }
+.about-promise {
+  font-size: var(--fs-22); font-weight: 600; color: var(--ink);
+  border-left: 3px solid var(--orange); padding: 0.25rem 0 0.25rem 1.25rem;
+  margin-top: 2rem;
+}
+.about-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;
+  margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.about-cert { display: flex; align-items: center; gap: 0.85rem; }
+.about-cert img { height: 56px; width: auto; }
+.about-cert-label { font-size: 0.85rem; color: var(--muted); line-height: 1.35; max-width: 22ch; }
+.about-stats { display: flex; gap: 2rem; font-size: var(--fs-14); }
+.about-stat strong { display: block; font-size: var(--fs-28); color: var(--orange); font-weight: 800; line-height: 1; margin-bottom: 0.25rem; letter-spacing: -0.03em; }
+.about-stat span { color: var(--muted); }
+
+/* clients strip */
+.about-clients {
+  margin-top: 3rem; padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 1rem 2.5rem;
+  align-items: center;
+}
+.about-clients-label {
+  font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted);
+}
+.about-clients-list {
+  display: flex; flex-wrap: wrap; gap: 1rem 2rem;
+  font-size: var(--fs-18); font-weight: 500;
+  color: var(--ink-soft);
+}
+.about-clients-list span { letter-spacing: -0.01em; }
+
+/* === FITCHECK === */
+.fitcheck { background: var(--paper-soft); }
+.fitcheck-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 720px) {
+  .fitcheck-grid { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+}
+.fitcheck-col {
+  background: var(--paper); padding: 2.25rem 2rem; border-radius: 18px;
+  border: 1px solid var(--line);
+}
+.fitcheck-col.yes { border-top: 4px solid var(--orange); }
+.fitcheck-col.no { border-top: 4px solid var(--ink); }
+.fitcheck-col h3 {
+  font-size: var(--fs-22); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.fitcheck-col h3 .badge {
+  display: inline-grid; place-items: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  font-size: 1.1rem; font-weight: 700;
+}
+.fitcheck-col.yes h3 .badge { background: var(--orange); color: #fff; }
+.fitcheck-col.no h3 .badge { background: var(--ink); color: #fff; }
+.fitcheck-col ul { list-style: none; display: grid; gap: 0.95rem; }
+.fitcheck-col li { padding-left: 1.6rem; position: relative; color: var(--ink-soft); line-height: 1.55; font-size: var(--fs-16); }
+.fitcheck-col.yes li::before {
+  content: ""; position: absolute; left: 0; top: 0.55rem;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--orange);
+}
+.fitcheck-col.no li::before {
+  content: ""; position: absolute; left: 0; top: 0.7rem;
+  width: 10px; height: 2px;
+  background: var(--muted);
+}
+
+/* === PRICING === */
+.pricing {
+  background: var(--ink); color: #fff;
+  position: relative; overflow: hidden;
+}
+.pricing::before {
+  content: ""; position: absolute; left: -200px; top: -100px;
+  width: 520px; height: 520px;
+  background: url("assets/deco-1.png") center / contain no-repeat;
+  opacity: 0.05;
+  transform: rotate(20deg);
+  pointer-events: none;
+}
+.pricing::after {
+  content: ""; position: absolute; right: -180px; bottom: -200px;
+  width: 480px; height: 480px;
+  background: url("assets/deco-4.png") center / contain no-repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+.pricing .wrap { position: relative; z-index: 1; }
+.pricing-grid {
+  display: grid; grid-template-columns: 1fr;
+  gap: 2.5rem; align-items: center;
+}
+@media (min-width: 880px) {
+  .pricing-grid { grid-template-columns: 1.05fr 1fr; gap: 4rem; }
+}
+.pricing h2 { color: #fff; font-size: var(--fs-40); margin-bottom: 1.25rem; max-width: 18ch; }
+.pricing-intro { color: rgba(255,255,255,0.72); font-size: var(--fs-18); line-height: 1.55; max-width: 50ch; }
+.pricing-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+}
+.pricing-card::before {
+  content: ""; position: absolute; top: -1px; left: 12%; right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.pricing-tag {
+  display: inline-block;
+  background: var(--orange-soft); color: var(--orange);
+  padding: 0.45rem 0.9rem; border-radius: 999px;
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border: 1px solid var(--orange-line);
+  margin-bottom: 1.5rem;
+}
+.pricing-amount { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.pricing-old {
+  font-size: var(--fs-28); color: rgba(255,255,255,0.4);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  font-weight: 500;
+}
+.pricing-new {
+  font-size: clamp(3.5rem, 8vw, 5.2rem);
+  font-weight: 800; color: var(--orange); line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+.pricing-currency { font-size: 0.5em; color: var(--orange); font-weight: 700; }
+.pricing-vat {
+  font-size: var(--fs-14); color: rgba(255,255,255,0.55);
+  margin: 0.5rem 0 1.75rem;
+}
+.pricing-deadline {
+  display: flex; align-items: center; gap: 0.6rem;
+  background: rgba(255,103,0,0.1); color: #fff;
+  padding: 0.7rem 1rem; border-radius: 12px;
+  font-size: var(--fs-14);
+  border: 1px solid var(--orange-line);
+  margin-bottom: 2rem;
+}
+.pricing-deadline .calendar {
+  width: 24px; height: 24px; border-radius: 6px;
+  background: var(--orange);
+  display: grid; place-items: center;
+  font-size: 0.7rem; color: #fff; font-weight: 700;
+  flex-shrink: 0;
+}
+.pricing-deadline strong { color: var(--orange); font-weight: 600; }
+.pricing-card .btn-primary { width: 100%; justify-content: center; padding: 1.15rem 1.5rem; }
+.pricing-foot {
+  margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.55);
+  line-height: 1.55;
+  display: flex; align-items: center; gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.pricing-foot .sep { opacity: 0.4; }
+.pricing-req {
+  margin-top: 1.75rem; padding-top: 1.5rem;
+  border-top: 1px dashed rgba(255,255,255,0.12);
+}
+.pricing-req-title {
+  font-size: 0.85rem; color: rgba(255,255,255,0.7);
+  font-weight: 500; margin-bottom: 0.7rem;
+  letter-spacing: 0.01em;
+}
+.pricing-req-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 0.45rem;
+  font-size: 0.85rem; color: rgba(255,255,255,0.65);
+}
+.pricing-req-list li {
+  padding-left: 1.1rem; position: relative;
+  line-height: 1.55;
+}
+.pricing-req-list li::before {
+  content: "→"; position: absolute; left: 0;
+  color: var(--orange); font-weight: 600;
+}
+.pricing-req-list li strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+/* === FAQ === */
+.faq { background: var(--paper); position: relative; overflow: hidden; }
+.faq::before {
+  content: ""; position: absolute; left: -120px; bottom: 80px;
+  width: 280px; height: 280px;
+  background: url("assets/deco-3.png") center / contain no-repeat;
+  opacity: 0.55; pointer-events: none;
+}
+.faq-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.5rem; margin-bottom: 3rem; }
+.faq-head h2 { font-size: var(--fs-40); margin-bottom: 0.5rem; }
+.faq-head .section-lead { font-size: var(--fs-18); }
+.faq-head-aside {
+  font-size: var(--fs-14); color: var(--muted);
+}
+.faq-head-aside a { color: var(--orange); border-bottom: 1px solid var(--orange-line); }
+.faq-list { display: grid; gap: 0.6rem; max-width: 880px; position: relative; z-index: 1; }
+.faq-item {
+  background: var(--paper-warm); border-radius: 14px;
+  border: 1px solid var(--line); overflow: hidden;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.faq-item[open] { border-color: var(--orange-line); background: var(--paper); box-shadow: 0 6px 24px -6px rgba(255,103,0,0.1); }
+.faq-q {
+  padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600;
+  font-size: var(--fs-18); color: var(--ink); list-style: none;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  letter-spacing: -0.01em;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-toggle {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--orange-soft);
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.2s var(--ease), transform 0.3s var(--ease);
+}
+.faq-toggle::before, .faq-toggle::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  width: 12px; height: 2px;
+  background: var(--orange);
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s var(--ease);
+  border-radius: 2px;
+}
+.faq-toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq-item[open] .faq-toggle { background: var(--orange); transform: rotate(180deg); }
+.faq-item[open] .faq-toggle::before { background: #fff; }
+.faq-item[open] .faq-toggle::after { background: #fff; transform: translate(-50%, -50%) rotate(0); }
+.faq-a {
+  padding: 0 1.5rem 1.5rem; color: var(--muted-deep);
+  line-height: 1.65; font-size: var(--fs-16);
+  max-width: 70ch;
+}
+.faq-a code {
+  background: var(--paper-soft); color: var(--ink);
+  padding: 0.1rem 0.4rem; border-radius: 4px;
+  font-family: var(--ff-mono); font-size: 0.88em;
+}
+
+/* === FINAL === */
+.final {
+  background: var(--ink); color: #fff;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.final::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,103,0,0.18), transparent 55%);
+  pointer-events: none;
+}
+.final .wrap { position: relative; z-index: 1; }
+.final-eyebrow {
+  display: inline-block; font-size: 0.78rem; font-weight: 700;
+  color: var(--orange); margin-bottom: 1.5rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.5rem 1.1rem;
+  background: var(--orange-soft);
+  border: 1px solid var(--orange-line);
+  border-radius: 999px;
+}
+.final h2 { color: #fff; font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3rem); margin-bottom: 1.5rem; max-width: 22ch; margin-inline: auto; line-height: 1.1; letter-spacing: -0.03em; }
+.final h2 em { font-style: normal; color: var(--orange); }
+.final-roi {
+  max-width: 720px; margin: 0 auto 2.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 2rem;
+  text-align: left;
+}
+.final-roi-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  font-size: var(--fs-14);
+}
+.final-roi-row + .final-roi-row { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed rgba(255,255,255,0.1); }
+.final-roi-label { color: rgba(255,255,255,0.55); }
+.final-roi-value { color: #fff; font-weight: 500; text-align: right; }
+.final-roi-total { padding-top: 1.25rem; margin-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.15); }
+.final-roi-total .final-roi-label { color: #fff; font-size: var(--fs-16); font-weight: 600; }
+.final-roi-total .final-roi-value { color: var(--orange); font-weight: 700; font-size: var(--fs-22); }
+.final-pitch { color: rgba(255,255,255,0.78); font-size: var(--fs-18); max-width: 56ch; margin: 0 auto 2rem; line-height: 1.55; }
+.final-pitch strong { color: #fff; }
+.final-secondary {
+  margin-top: 1.5rem; font-size: var(--fs-14); color: rgba(255,255,255,0.55);
+}
+.final-secondary a { color: var(--orange); border-bottom: 1px solid var(--orange-line); }
+
+/* === FOOTER === */
+.foot {
+  background: var(--ink-deep); color: rgba(255,255,255,0.55);
+  padding: 3rem 0 2rem;
+  font-size: var(--fs-14);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.foot .wrap {
+  display: grid; gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .foot .wrap {
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+  }
+}
+.foot-brand { display: flex; align-items: center; gap: 0.6rem; color: rgba(255,255,255,0.85); font-weight: 600; }
+.foot-brand .mark {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--orange);
+  display: grid; place-items: center;
+  color: #fff; font-weight: 800; font-size: 0.85rem;
+}
+.foot a { color: rgba(255,255,255,0.7); transition: color 0.2s var(--ease); }
+.foot a:hover { color: var(--orange); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .pricing-card { padding: 1.75rem 1.4rem; }
+  .pricing-grid { gap: 2rem; }
+  .compare-row { grid-template-columns: 1fr; }
+  .compare-cell.before { border-right: none; border-bottom: 1px solid var(--line); }
+  .compare-cell.after { background: var(--paper-soft); }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-logo">
+      <span class="mark"><span>MK</span></span>
+      <span>Michał Kurek</span>
+    </a>
+    <div class="nav-links">
+      <a href="#co-zmienia">Co zmienia</a>
+      <a href="#pakiet">Pakiet</a>
+      <a href="#o-mnie">O mnie</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#cena" class="nav-cta">Odblokuj dostęp
+</a>
+  </div>
+</nav>
+
+<!-- =================== HERO =================== -->
+<section id="top" class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span><span class="cmd-static">/google-ads</span> <span class="cmd-rot"><span>stwórz propozycję reklam</span><span>sprawdź wykluczające słowa</span><span>analizuj konto</span><span>stwórz raport miesięczny</span><span>stwórz propozycję reklam</span></span></span>
+    </div>
+    <h1>Agent, który robi za Ciebie nudne i czasochłonne rzeczy w <em>Google Ads</em></h1>
+    <p class="hero-sub">Cyfrowy pracownik dla freelancera Google Ads albo małej agencji prowadzącej kilka kont. Bez klikania w panelu. Bez programowania. Bez marnowania czasu.</p>
+    <div class="hero-ctas">
+      <a href="#cena" class="btn-primary">
+        <span>Odblokuj dostęp</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#demo" class="btn-secondary">
+        <span class="play">▶</span>
+        <span>Zobacz demo działania</span>
+      </a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">60+ komend pod maską</div>
+      <div class="hero-meta-item">6 gotowych workflow</div>
+      <div class="hero-meta-item">30-punktowy audyt</div>
+      <div class="hero-meta-item">30 dni mojego wsparcia</div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== DEMO =================== -->
+<section id="demo" class="demo">
+  <div class="wrap demo-wrap">
+    <div class="section-eyebrow">Demo przepływu pracy</div>
+    <h2>Tak wygląda teraz obsługa Google Ads.<br><span class="sep">/</span>Bez panelu. Bez Excela. Bez godzin analiz.<br><span class="hi">Bez terminala</span> na co dzień - wszystko w aplikacji Claude.</h2>
+
+    <div class="cc" role="img" aria-label="Demo Claude Code - skill google-ads">
+      <div class="cc-titlebar">
+        <div class="breadcrumb">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          <span>MiQ_System</span>
+          <span class="sep">/</span>
+          <span>Google Ads Integration</span>
+          <span class="chev">⌄</span>
+        </div>
+        <div class="icons" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M8 8h8M8 12h5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
+        </div>
+      </div>
+
+      <div class="cc-body">
+        <div class="cc-thread" id="cc-thread">
+          <div class="cc-userline cc-demo-line">
+            <span class="arrow">›</span>
+            <span class="text">Zrób tygodniowy przegląd konta dla ACME</span>
+          </div>
+          <div class="cc-action cc-demo-line">Ran 5 commands <span class="chev">›</span></div>
+          <p class="cc-message cc-demo-line">Mam dane z konta. Widzę 3 rzeczy do decyzji: PMax rośnie kosztowo, Search-PL zebrał nowe zapytania, a Demand Gen zakończył etap testu.</p>
+          <div class="cc-action cc-demo-line">Read 2 files <span class="chev">›</span></div>
+          <p class="cc-message cc-demo-line">Zapisuję krótki raport tygodniowy dla klienta.</p>
+          <div class="cc-file-row cc-demo-line">
+            <span>Created</span>
+            <code>Raporty_Klient/ACME_2026-W20.md</code>
+            <span class="add">+172</span><span class="rem">-0</span>
+            <span class="chev">›</span>
+          </div>
+          <p class="cc-message cc-demo-line">Raport gotowy. Najważniejsze wnioski:</p>
+          <ol class="cc-findings cc-demo-line">
+            <li><span class="dot"></span><span><b>PMax-Generic:</b> koszt rośnie, ale CPA jest pod celem. Do sprawdzenia 3 nowe wzorce zapytań.</span></li>
+            <li><span class="dot"></span><span><b>Search-PL:</b> 12 propozycji słów wykluczających czeka na akceptację.</span></li>
+            <li><span class="dot"></span><span><b>Raport:</b> draft dla klienta zapisany jako <span class="cc-link">ACME_2026-W20.md</span>.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="cc-foot">
+        <div class="cc-branch">
+          <div class="git">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6 8v5a5 5 0 0 0 5 5h5"/><path d="M6 8v10"/></svg>
+            <span>main ← main</span>
+          </div>
+          <div class="diff"><span class="add">+172</span><span class="rem">-0</span></div>
+          <span class="pr">Create PR <span class="chev">⌄</span></span>
+        </div>
+
+        <div class="cc-input">
+          <svg class="star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15"/></svg>
+          <div class="field" id="cc-field"><span class="cur"></span></div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b0b0b0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14l-4 4 4 4M5 18h10a4 4 0 0 0 4-4V6"/></svg>
+        </div>
+
+        <div class="cc-bottom">
+          <div class="left">
+            <span class="auto">Auto mode</span>
+            <span class="ico">+</span>
+            <span class="ico">✎</span>
+            <span class="ico" style="font-size:0.7em">⌄</span>
+          </div>
+          <div class="right">
+            <span class="model">Opus 4.7 1M</span>
+            <span style="color:#b8b8b8">·</span>
+            <span class="max">Max</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="demo-caption">Każda zmiana wymaga Twojego "tak". Agent nie ruszy konta klienta bez akceptacji. Pełna kontrola, zero "AI która działa za Twoimi plecami".</p>
+  </div>
+</section>
+
+<!-- =================== STORY =================== -->
+<section class="story">
+  <div class="wrap story-wrap">
+    <div class="section-eyebrow">PO CO ZBUDOWAŁEM AGENTA GOOGLE ADS</div>
+    <h2>Nie chciałem kolejnego asystenta AI tylko <em>cyfrowego pracownika</em>, który robi rzeczy za mnie.</h2>
+    <p>Od kiedy 8 lat temu zacząłem pracować z Google Ads, szukałem czegoś, co odetnie mi powtarzalne rzeczy. Klikologia w panelu, onboarding klienta od zera, raporty pisane co tydzień. Próbowałem ChatGPT i Gemini w przeglądarce, potem asystentów z pamięcią kontekstu. Pomocne, ale nadal proteza - musiałem mówić, co mają zrobić.</p>
+    <p>W końcu pojawił się Claude Code. Zacząłem budować swój system aż zorientowałem się, że to co stworzyłem to cały mój workflow obsługi kont Google Ads. Audyty, raporty, briefy, treści reklam, przeglądy tygodniowe i miesięczne. Wszystko z jednego okienka, bez zaglądania do panelu na co dzień.</p>
+    <p>Chwilę się zastanawiałem, czy udostępnić coś, co buduje moją przewagę konkurencyjną, w cenie przedpremierowej. Kilka rozmów z klientami mentoringowymi przekonało mnie, że prędzej czy później każdy zacznie pracować w ten sposób. Wolę być po stronie tych, co dzielą się systemem.</p>
+    <p>Tak powstał ten skill. Najpierw dla mnie. Teraz dla Ciebie.</p>
+
+  </div>
+</section>
+
+<!-- =================== CO ZMIENIA =================== -->
+<section id="co-zmienia" class="changes">
+  <div class="wrap">
+    <div class="section-eyebrow">CO DOKŁADNIE SIĘ ZMIENIA</div>
+    <h2 class="section-h2">Cztery konkretne obszary, w których odzyskasz czas</h2>
+    <p class="section-lead">Bez teorii. Przykłady z mojego codziennego workflow.</p>
+
+    <div class="changes-grid">
+      <article class="change-card">
+        <div class="change-head">
+          <div class="change-num">01</div>
+          <h3>Obsługa konta - po polsku w okienku czata</h3>
+        </div>
+        <p>Ponad 60 komend pokrywa pełny workflow: tworzenie kampanii Search i PMax, słowa kluczowe (z ilością wyszukań, CPC, konkurencją), reklamy RSA, rozszerzenia, słowa wykluczające, targetowanie, konwersje.</p>
+        <p>Praktycznie: Prosisz o co chcesz, a system sam dobiera tryb pracy na podstawie zaszytych komend i wytycznych. Nie musisz pamiętać komend.</p>
+      </article>
+
+      <article class="change-card">
+        <div class="change-head">
+          <div class="change-num">02</div>
+          <h3>Audyty - od "gdzie to było w panelu" do checklisty 30 punktów</h3>
+        </div>
+        <p>Pełny audyt konta jednym poleceniem. Skill sprawdza 30 punktów w 7 blokach: sieci i ustawienia, lokalizacja, słowa, landing page, konwersje, pre-change, anty-patterny Google.</p>
+        <p>Łapie domyślne ustawienia Google które po cichu palą budżet: <code>auto-apply</code>, <code>AI Max</code>, <code>URL expansion</code>, <code>view-through windows</code>. Nic Ci nie umknie. Wgrałem mu twarde wytyczne co konkretnie ma sprawdzać.</p>
+      </article>
+
+      <article class="change-card">
+        <div class="change-head">
+          <div class="change-num">03</div>
+          <h3>Raporty - od pisania od zera do gotowego draftu</h3>
+        </div>
+        <p>Workflow przeglądów tygodniowych i miesięcznych. Skill ciągnie dane z konta, układa wnioski, pisze draft raportu w prostym języku. Ty robisz tylko korektę i wysyłasz klientowi. </p>
+        <p>Skill pamięta jak piszesz - w pliku STATUS.md u klienta zostawia historię ustaleń. Każdy następny raport jest spójny z poprzednim.</p>
+      </article>
+
+      <article class="change-card">
+        <div class="change-head">
+          <div class="change-num">04</div>
+          <h3>Nowy klient - od chaosu do uporządkowanego briefu</h3>
+        </div>
+        <p>Workflow Onboarding: wklejasz transkrypcję rozmowy z klientem, maila lub notatki ze spotkania wraz z linkiem do strony. Skill wypełnia brief, robi research słów kluczowych, generuje pierwsze szkice reklam.</p>
+        <p>Brief jest podstawą pracy i źródłem prawdy. Możesz wrócić do niego później i sprawdzić, czy realizujesz to, o czym klient mówił na początku. Nic nie ginie.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================== COMPARE =================== -->
+<section class="compare">
+  <div class="wrap">
+    <div class="section-eyebrow">Wcześniej vs teraz</div>
+    <h2 class="section-h2">Twój dzień przed i po</h2>
+    <p class="section-lead">To nie jest hipotetyczne. Pracuję tak od kilku miesięcy na kilkunastu dużych kontach jednocześnie.</p>
+
+    <div class="compare-table">
+      <div class="compare-row head">
+        <div class="compare-cell before">Wcześniej</div>
+        <div class="compare-cell after">Teraz</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell before">Logowanie do panelu, klikanie przez 10 zakładek</div>
+        <div class="compare-cell after"><strong>Jedno polecenie</strong> w Claude Code</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell before">Tworzenie kampanii: ręczne składanie elementów w panelu</div>
+        <div class="compare-cell after"><strong>Szkic kampanii</strong> i wdrożenie z review</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell before">Raport miesięczny: pisanie od zera i składanie wniosków</div>
+        <div class="compare-cell after"><strong>Gotowy draft</strong> do sprawdzenia i wysłania</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell before">Audyt po przejęciu konta: ręczne przechodzenie przez ustawienia</div>
+        <div class="compare-cell after">Jedno polecenie - <strong>checklista i wnioski w jednym miejscu</strong></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell before">Pamiętanie 5 narzędzi (panel, Excel, GA4, GTM, Looker)</div>
+        <div class="compare-cell after"><strong>Jedno okienko</strong>, CC zagląda wszędzie</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell before">Słowa wykluczające na 5 kontach: 30 min ręcznie</div>
+        <div class="compare-cell after"><strong>Jedna komenda</strong>, „wdrażaj wszystkie"</div>
+      </div>
+    </div>
+
+    <p class="compare-note"><strong>Skill / agent jest produktem ubocznym</strong> tego, że potrzebowałem go dla siebie. Tworzyłem go pod realną pracę na wielu kontach, które prowadzę.</p>
+  </div>
+</section>
+
+<!-- =================== SAFETY =================== -->
+<section class="safety">
+  <div class="wrap safety-wrap">
+    <div class="section-eyebrow">Bezpieczeństwo</div>
+    <h2>Czy skill może <em>spalić budżet</em> klientowi?</h2>
+    <div class="safety-answer">Nie.</div>
+    <p>Każda operacja zapisu (zmiana budżetu, włączenie kampanii, dodanie słów, edycja reklamy) wymaga jawnego potwierdzenia. Skill pokazuje co chce zrobić, na którym koncie, na której kampanii, czeka aż napiszesz <strong>"tak" / "potwierdź" / "dawaj"</strong>. Bez tego nic się nie wykona.</p>
+    <p>Więcej: każda zmiana zostawia ślad. Skill dopisuje wpis do pliku <code>historia_zmian.md</code> w folderze klienta. Wiesz co, kiedy i dlaczego zostało zmienione. <strong>Pełna historia zmian bez papierologii.</strong></p>
+    <div class="safety-final">Pełna kontrola.<br>Zero AI, która działa za Twoimi plecami.</div>
+  </div>
+</section>
+
+<!-- =================== PACKAGE =================== -->
+<section id="pakiet" class="package">
+  <div class="wrap">
+    <div class="section-eyebrow">Co dostajesz</div>
+    <h2>Wszystko, czego potrzebujesz, żeby uwolnić czas od klikologii</h2>
+    <p class="section-lead">Skill, instrukcja konfiguracji, gotowe workflow, wsparcie i aktualizacje - bez składania systemu od zera.</p>
+
+    <ul class="package-list">
+      <li>
+        <span class="check"></span>
+        <div class="body">
+          <strong>Skill <code>google-ads</code> w pliku ZIP</strong>
+          <span class="desc">Rozpakowujesz do folderu projektu Claude Code i działa.</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div class="body">
+          <strong>Instrukcja konfiguracji krok po kroku</strong>
+          <span class="desc">Jest kilka kroków, które trzeba wykonać, żeby agent zadziałał, ale spokojnie. Wszystko Ci pokażę.</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div class="body">
+          <strong>5 krótkich filmów instruktażowych</strong>
+          <ul class="package-films">
+            <li><span class="ep">M0</span>instalacja Claude Code i co dostajesz</li>
+            <li><span class="ep">M1</span>założenie konta menadżera Google + Developer Token</li>
+            <li><span class="ep">M2</span>Google Cloud + OAuth client</li>
+            <li><span class="ep">M3</span>Refresh token i pierwszy test</li>
+            <li><span class="ep">M4</span>jak pracować ze skillem - <code>/google-ads</code> i 6 workflow</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div class="body">
+          <strong>6 workflow gotowych do użycia</strong>
+          <span class="desc">Onboarding, Sprawdź klienta (3 poziomy), Nowe ustalenia, Materiały, Przeglądy, Audyt analityki.</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div class="body">
+          <strong>Checklist konfiguracji 30 punktów</strong>
+          <span class="desc">Anty-patterny Google które palą budżet - sprawdzane jednym poleceniem.</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div class="body">
+          <strong>Wsparcie mailowe przez 30 dni</strong>
+          <span class="desc">Na pytania konfiguracyjne. Odpowiadam w 24h roboczych.</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div class="body">
+          <strong>Aktualizacje skilla przez 12 miesięcy</strong>
+          <span class="desc">Dostajesz nowe wersje ZIP-a mailem.</span>
+        </div>
+      </li>
+      <li>
+        <span class="check"></span>
+        <div class="body">
+          <strong>Licencja osobista</strong>
+          <span class="desc">Licencja osobista dla jednej osoby. Możesz używać skilla przy swoich klientach. Nie możesz odsprzedawać ani udostępniać ZIP-a.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- =================== ABOUT =================== -->
+<section id="o-mnie" class="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="assets/michal_kurek.png" alt="Michał Kurek">
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">Kim jestem</div>
+        <h2>Solo spec Google Ads</h2>
+        <p>Od 8 lat w branży. Pracowałem dla marek takich jak Bing, Barbie, Naviflet, OSM Power, Orbico.</p>
+        <p>Obsługuję kilkunastu klientów jednocześnie. Agenta zbudowałem dla siebie i używam go codziennie. Po miesiącach pracy z Claude Code zdałem sobie sprawę, że to co zbudowałem pozwoliło mi odzyskać czas i w końcu zaplanować spokojne wakacje, a dodatkowo zwiększyła się jakość mojej usługi. </p>
+        <div class="about-promise">Nie obiecuję, że od teraz nic nie sprawdzasz. Chcę zdjąć z Ciebie powtarzalne raporty, audyty i checklisty, żeby więcej energii zostało na decyzje strategiczne i kontakt z klientem.</div>
+
+        <div class="about-meta">
+          <div class="about-cert">
+            <img src="assets/Google-Search-Cert.png" alt="Google Ads Search Certified">
+            <span class="about-cert-label">Google Ads<br>Search Certified</span>
+          </div>
+          <div class="about-stats">
+            <div class="about-stat"><strong>8+</strong><span>lat w branży</span></div>
+            <div class="about-stat"><strong>15 mln</strong><span>budżetu w kampaniach</span></div>
+            <div class="about-stat"><strong>150</strong><span>dni z Claude Code</span></div>
+          </div>
+        </div>
+
+        <div class="about-clients">
+          <div class="about-clients-label">Marki, dla których pracowałem</div>
+          <div class="about-clients-list">
+            <span>Orbico</span>
+            <span>Barbie</span>
+            <span>AMK Meble</span>
+            <span>+300 innych</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FITCHECK =================== -->
+<section class="fitcheck">
+  <div class="wrap">
+    <div class="section-eyebrow">Dla kogo</div>
+    <h2 class="section-h2">Czy ten skill jest dla Ciebie?</h2>
+
+    <div class="fitcheck-grid">
+      <div class="fitcheck-col yes">
+        <h3><span class="badge">✓</span>To jest dla Ciebie jeśli</h3>
+        <ul>
+          <li>Prowadzisz 5+ klientów Google Ads </li>
+          <li>Chcesz skrócić raportowanie i audyty</li>
+          <li>Słyszałeś o Claude Code, ale nie zdążyłeś się wgryźć</li>
+          <li>Wolisz zapytać o dane niż szukać danych w panelu</li>
+        </ul>
+      </div>
+      <div class="fitcheck-col no">
+        <h3><span class="badge">×</span>To NIE jest dla Ciebie jeśli</h3>
+        <ul>
+          <li>Dopiero zaczynasz przygodę z Google Ads (potrzebujesz nauki, nie automatu)</li>
+          <li>Wolisz zostać przy ręcznej obsłudze i nie chcesz zmieniać procesu pracy</li>
+          <li>Oczekujesz, że AI poprowadzi kampanie samo bez sprawdzania </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PRICING =================== -->
+<section id="cena" class="pricing">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div>
+        <div class="section-eyebrow">Cena przedpremierowa</div>
+        <h2>Przedpremiera dla osób, które chcą wejść wcześniej</h2>
+        <p class="pricing-intro">Dołączając teraz, masz gwarancję najniższej ceny: 399 zł, 12 miesięcy aktualizacji i 30 dni mojego wsparcia przy wdrożeniu. Cena wzrasta do 790 zł od 21 czerwca.</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tag">Przedpremiera</div>
+        <div class="pricing-amount">
+          <span class="pricing-old">790 zł</span>
+          <span class="pricing-new">399<span class="pricing-currency"> zł</span></span>
+        </div>
+        <div class="pricing-vat">Brutto (VAT wliczony w cenę)</div>
+
+        <div class="pricing-deadline">
+          <span class="calendar">21</span>
+          <span>Cena rośnie do 790 zł od 21 czerwca.</span>
+        </div>
+
+        <a href="https://cart.easy.tools/checkout/7577655/miq-system" class="btn-primary">
+          <span>Odbieram za 399 zł</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <p class="pricing-foot">
+          <span>Płatność przez Stripe</span>
+          <span class="sep">·</span>
+          <span>Faktura automatyczna</span>
+          <span class="sep">·</span>
+          <span>Skill + Instruktaż + 30 dni wsparcia + 12 miesięcy aktualizacji</span>
+        </p>
+
+        <div class="pricing-req">
+          <div class="pricing-req-title">Przed zakupem sprawdź czy masz:</div>
+          <ul class="pricing-req-list">
+            <li><strong>Claude Code</strong> (subskrypcja Pro lub Max)</li>
+            <li><strong>Konto MCC</strong> Google Ads (instrukcja prowadzi przez założenie)</li>
+            <li><strong>Developer Token</strong> Google Ads API (też w instrukcji)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FAQ =================== -->
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="faq-head">
+      <div>
+        <div class="section-eyebrow">FAQ</div>
+        <h2>Najczęstsze pytania</h2>
+        <p class="section-lead">
+</p>
+      </div>
+      <div class="faq-head-aside">
+        Nie ma Twojego pytania?<br>
+        <a href="mailto:kontakt@michalkurek.pl">Napisz na kontakt@michalkurek.pl</a>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q"><span>Czy muszę umieć programować?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Nie, ja też nim nie jestem. Wystarczy, że uruchomisz wszystko według instrukcji i możesz zacząć działać.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Czy to bezpieczne dla konta?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Tak. Każda zmiana w koncie wymaga Twojego jawnego "tak". Bez tego skill tylko czyta dane.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Ile czasu zajmuje instalacja?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Najdłużej czeka się na API Google Ads po złożeniu wniosku (1-3 dni). Samo założenie konta managera i złożenie wniosku to kilka minut. Gdy już masz przyznane API, wystarczy 30 minut przy komputerze, wykonując kroki zgodnie z instrukcją.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Czy działa na Windows / Mac?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Aplikację na komputer możesz pobrać już teraz i sprawdzić, czy działa na Twoim systemie: <a href="https://claude.ai/downloads" target="_blank" rel="noopener">https://claude.ai/downloads</a>. Do korzystania z Claude Code w aplikacji będziesz potrzebować płatnego planu, przynajmniej Pro.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Czy są aktualizacje?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Tak. Cały czas rozwijam swój skill i dodaję aktualizacje. Będę wysyłał powiadomienia o aktualnej wersji. To znaczy, że pracujesz dokładnie na tym, na czym ja.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Co jeśli utknę w setupie?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Wsparcie mailowe przez 30 dni od zakupu. Odpowiadam w 24h roboczych. Większość problemów to pojedyncze błędy w konfiguracji, rozwiązywalne w 1-2 mailach.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Mogę używać dla moich klientów?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Tak. To jest dokładnie cel produktu - ja sam tak go używam dla kilkunastu klientów. Licencja osobista oznacza że Ty jako specjalista możesz obsługiwać dowolną liczbę swoich klientów, ale nie możesz odsprzedać skilla komuś innemu.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Faktura?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Tak. Automatycznie po zakupie.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Czy działa w innym języku niż polski?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Skill jest po polsku (komendy + workflow + szablony raportów). Ale Claude Code rozumie wszystkie języki, więc możesz pisać po angielsku - skill odpowie w języku który ustawisz w briefie klienta.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Co jeśli nie mam konta MCC (Manager Account)?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Instrukcja prowadzi przez założenie MCC krok po kroku. Założenie jest darmowe, zajmuje 5 minut. Bez MCC nie da się dostać Developer Tokena - to wymóg Google, nie skilla.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>Mogę odsprzedać lub podzielić się ZIP-em?</span><span class="faq-toggle"></span></summary>
+        <div class="faq-a">Nie. Licencja jest na jedno konto managera, które może mieć dowolną liczbę podłączonych kont Google Ads.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FINAL =================== -->
+<section class="final">
+  <div class="wrap">
+    <span class="final-eyebrow">Dlaczego ta cena ma sens</span>
+    <h2>Gotowy proces pracy z kontami. <em>Prompty są tylko jednym elementem.</em></h2>
+
+    <div class="final-roi">
+      <div class="final-roi-row">
+        <div class="final-roi-label">Jeśli prowadzisz kilka kont</div>
+        <div class="final-roi-value">raporty, audyty i onboarding wracają cały czas</div>
+      </div>
+      <div class="final-roi-row">
+        <div class="final-roi-label">Samodzielna droga</div>
+        <div class="final-roi-value">prompty, OAuth, foldery klientów, checklisty, testy</div>
+      </div>
+      <div class="final-roi-row">
+        <div class="final-roi-label">Ze skillem</div>
+        <div class="final-roi-value">gotowy proces, który dopasowujesz do swojej pracy</div>
+      </div>
+      <div class="final-roi-row">
+        <div class="final-roi-label">Największa wartość</div>
+        <div class="final-roi-value">mniej składania od zera, więcej kontroli nad obsługą</div>
+      </div>
+      <div class="final-roi-row final-roi-total">
+        <div class="final-roi-label">Cena przedpremierowa</div>
+        <div class="final-roi-value">399 zł brutto</div>
+      </div>
+    </div>
+
+    <p class="final-pitch">Dostajesz proces zbudowany na realnej obsłudze kont Google Ads i możesz od razu używać go przy swoich klientach.</p>
+
+    <a href="https://cart.easy.tools/checkout/7577655/miq-system" class="btn-primary">
+      <span>Kup dostęp - 399 zł</span>
+      <span class="arrow">→</span>
+    </a>
+
+    <div class="final-secondary">Masz pytanie? <a href="mailto:kontakt@michalkurek.pl">Napisz do mnie</a></div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-brand">
+      <span class="mark">MK</span>
+      <span>Michał Kurek · MiQ</span>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:kontakt@michalkurek.pl">kontakt@michalkurek.pl</a>
+    </div>
+    <div>© 2026 Michał Kurek</div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var field = document.getElementById('cc-field');
+  if (!field) return;
+
+  var demoLines = Array.prototype.slice.call(document.querySelectorAll('.cc-demo-line'));
+  var prompt = 'Zrób tygodniowy przegląd konta dla ACME';
+  var exampleCommands = [
+    'Zrób audyt konta ACME i pokaż najpilniejsze poprawki',
+    'Pokaż wyniki kampanii z ostatnich 7 dni',
+    'Podaj średnią liczbę wyszukań w Polsce dla frazy: łóżka młodzieżowe',
+    'Znajdź słowa wykluczające, które warto dodać na 5 kontach',
+    'Przygotuj draft raportu miesięcznego dla klienta',
+    'Sprawdź, które kampanie przekroczyły docelowy CPA'
+  ];
+  var started = false;
+
+  function type(text, idx, done) {
+    if (idx > text.length) { done && done(); return; }
+    field.innerHTML = text.slice(0, idx).replace(/ /g, '\u00a0') + '<span class="cur"></span>';
+    var jitter = 35 + Math.random() * 60;
+    setTimeout(function() { type(text, idx + 1, done); }, jitter);
+  }
+
+  function revealLines(idx, done) {
+    if (idx >= demoLines.length) { done && done(); return; }
+    demoLines[idx].classList.add('show');
+    setTimeout(function() { revealLines(idx + 1, done); }, 520);
+  }
+
+  function cycleCommands(idx) {
+    var command = exampleCommands[idx % exampleCommands.length];
+    field.innerHTML = '<span class="cur"></span>';
+    setTimeout(function() {
+      type(command, 0, function() {
+        setTimeout(function() { cycleCommands(idx + 1); }, 2200);
+      });
+    }, 350);
+  }
+
+  function run() {
+    if (started) return;
+    started = true;
+    setTimeout(function() {
+      type(prompt, 0, function() {
+        setTimeout(function() {
+          field.innerHTML = '<span class="cur"></span>';
+          revealLines(0, function() {
+            setTimeout(function() {
+              cycleCommands(0);
+            }, 1100);
+          });
+        }, 350);
+      });
+    }, 600);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { run(); obs.disconnect(); } });
+    }, { threshold: 0.3 });
+    obs.observe(field.closest('.cc'));
+  } else {
+    run();
+  }
+})();
+</script>
+</body>
+</html>
