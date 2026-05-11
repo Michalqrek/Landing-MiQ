@@ -469,11 +469,14 @@ section { padding: clamp(4rem, 8vw, 6.5rem) 0; position: relative; }
 }
 .cc-input .field {
   flex: 1;
+  min-width: 0;
   color: #1f1f1f;
   font-size: 0.92rem;
+  line-height: 1.35;
   padding: 0.1rem 0;
-  min-height: 1.5em;
+  min-height: 2.7em;
   font-family: var(--ff);
+  overflow-wrap: anywhere;
 }
 .cc-input .field:empty::before {
   content: "Type / for commands";
@@ -1116,6 +1119,9 @@ section { padding: clamp(4rem, 8vw, 6.5rem) 0; position: relative; }
 @media (max-width: 640px) {
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .cc-foot { gap: 0.55rem; }
+  .cc-input { min-height: 5.25rem; }
+  .cc-input .field { min-height: 3em; font-size: 0.88rem; }
   .pricing-card { padding: 1.75rem 1.4rem; }
   .pricing-grid { gap: 2rem; }
   .compare-row { grid-template-columns: 1fr; }
@@ -1198,7 +1204,7 @@ section { padding: clamp(4rem, 8vw, 6.5rem) 0; position: relative; }
         <div class="cc-thread" id="cc-thread">
           <div class="cc-userline cc-demo-line">
             <span class="arrow">›</span>
-            <span class="text">Zrób tygodniowy przegląd konta dla ACME</span>
+            <span class="text">Zrób przegląd tygodniowy ACME</span>
           </div>
           <div class="cc-action cc-demo-line">Ran 5 commands <span class="chev">›</span></div>
           <p class="cc-message cc-demo-line">Mam dane z konta. Widzę 3 rzeczy do decyzji: PMax rośnie kosztowo, Search-PL zebrał nowe zapytania, a Demand Gen zakończył etap testu.</p>
@@ -1688,20 +1694,20 @@ section { padding: clamp(4rem, 8vw, 6.5rem) 0; position: relative; }
   if (!field) return;
 
   var demoLines = Array.prototype.slice.call(document.querySelectorAll('.cc-demo-line'));
-  var prompt = 'Zrób tygodniowy przegląd konta dla ACME';
+  var prompt = 'Zrób przegląd tygodniowy ACME';
   var exampleCommands = [
-    'Zrób audyt konta ACME i pokaż najpilniejsze poprawki',
-    'Pokaż wyniki kampanii z ostatnich 7 dni',
-    'Podaj średnią liczbę wyszukań w Polsce dla frazy: łóżka młodzieżowe',
-    'Znajdź słowa wykluczające, które warto dodać na 5 kontach',
-    'Przygotuj draft raportu miesięcznego dla klienta',
-    'Sprawdź, które kampanie przekroczyły docelowy CPA'
+    'Zrób audyt konta ACME',
+    'Pokaż wyniki z 7 dni',
+    'Sprawdź wyszukania: łóżka młodzieżowe',
+    'Znajdź wykluczenia na 5 kontach',
+    'Przygotuj draft raportu',
+    'Sprawdź kampanie ponad CPA'
   ];
   var started = false;
 
   function type(text, idx, done) {
     if (idx > text.length) { done && done(); return; }
-    field.innerHTML = text.slice(0, idx).replace(/ /g, '\u00a0') + '<span class="cur"></span>';
+    field.innerHTML = text.slice(0, idx) + '<span class="cur"></span>';
     var jitter = 35 + Math.random() * 60;
     setTimeout(function() { type(text, idx + 1, done); }, jitter);
   }
